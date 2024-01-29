@@ -5,8 +5,8 @@ import { GenericMigrationStep } from './migrate'
 export interface MigrationState {
   readonly v3CoreFactoryAddress?: string
   readonly swapRouter02?: string
-  readonly nftDescriptorLibraryAddressV1_3_0?: string
-  readonly nonfungibleTokenPositionDescriptorAddressV1_3_0?: string
+  readonly nftDescriptorLibraryAddress?: string
+  readonly nonfungibleTokenPositionDescriptorAddress?: string
   readonly descriptorProxyAddress?: string
   readonly multicall2Address?: string
   readonly proxyAdminAddress?: string
@@ -15,6 +15,9 @@ export interface MigrationState {
   readonly v3MigratorAddress?: string
   readonly v3StakerAddress?: string
   readonly nonfungibleTokenPositionManagerAddress?: string
+  readonly permit2Address?: string
+  readonly unsupportedAddress?: string
+  readonly universalRouterAddress?: string
 }
 
 export type StepOutput = { message: string; hash?: string; address?: string }
