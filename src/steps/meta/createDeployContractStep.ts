@@ -1,8 +1,9 @@
 import { Contract, ContractInterface, ContractFactory } from '@ethersproject/contracts'
 import { MigrationConfig, MigrationState, MigrationStep } from '../../migrations'
 import linkLibraries from '../../util/linkLibraries'
+import { Objectish } from 'immer/dist/internal'
 
-type ConstructorArgs = (string | number | string[] | number[])[]
+type ConstructorArgs = (string | number | string[] | number[] | Objectish)[]
 
 export default function createDeployContractStep({
   key,
