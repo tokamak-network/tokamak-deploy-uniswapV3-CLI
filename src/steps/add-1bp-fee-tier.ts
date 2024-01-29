@@ -16,6 +16,16 @@ export const ADD_1BP_FEE_TIER: MigrationStep = async (state, { signer, gasPrice 
   if (owner !== (await signer.getAddress())) {
     throw new Error('UniswapV3Factory.owner is not signer')
   }
+  const tickSpacing = await v3CoreFactory.feeAmountTickSpacing(ONE_BP_FEE)
+  if (Number(tickSpacing.toString()) >= ONE_BP_TICK_SPACING) {
+    return [
+      {
+        message: `UniswapV3Factory already has a fee tier ${
+          ONE_BP_FEE / 100
+        } bps with tick spacing ${ONE_BP_TICK_SPACING}`,
+      },
+    ]
+  }
   const tx = await v3CoreFactory.enableFeeAmount(ONE_BP_FEE, ONE_BP_TICK_SPACING, { gasPrice })
 
   return [
