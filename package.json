@@ -1,6 +1,6 @@
 {
   "name": "@tokamak-network/deploy-v3",
-  "version": "1.0.4",
+  "version": "1.0.1",
   "description": "Deploy Uniswap V3 smart contracts",
   "bin": "dist/index.js",
   "publishConfig": {
