@@ -20,6 +20,11 @@ program
   .option('-s, --state <path>', 'Path to the JSON file containing the migrations state (optional)', './state.json')
   .option('-g, --gas-price <number>', 'The gas price to pay in GWEI for each transaction (optional)')
   .option('-c, --confirmations <number>', 'How many confirmations to wait for after each transaction (optional)', '2')
+  .on('--help', () => {
+    console.log(
+      '\nSince the native wrapped token is predeployed to a fixed address 0x4200000000000000000000000000000000000006, the parameter weth9 or wton is fixed to that address.\n'
+    )
+  })
 
 program.name('npx @tokamak-network/deploy-v3').version(version).parse(process.argv)
 
